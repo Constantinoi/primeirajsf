@@ -31,7 +31,7 @@ public class LembreteMapper {
         return lembretes;
     }
 
-    private void adicionar(Lembrete lembrete) {
+    public void adicionar(Lembrete lembrete) {
         lembrete.setId(lembretes.size() +1);
 
         Instant agora = LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
