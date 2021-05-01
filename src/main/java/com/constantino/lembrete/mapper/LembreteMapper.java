@@ -41,14 +41,14 @@ public class LembreteMapper {
         lembretes.add(lembrete);
     }
 
-    private void remover(Lembrete lembrete){
+    public void remover(Lembrete lembrete){
         try{
             lembrete = buscar(lembrete.getId());
         }catch (Exception e){
             e.printStackTrace();
         }
     }
-    private void editar(Lembrete lembrete){
+    public void editar(Lembrete lembrete){
         try{
             for(Lembrete item : lembretes){
                 if(item.getId() == lembrete.getId()){
@@ -61,7 +61,7 @@ public class LembreteMapper {
         }
     }
 
-    private Lembrete buscar(long id){
+    public Lembrete buscar(long id){
         Lembrete lembrete = null;
 
         try{

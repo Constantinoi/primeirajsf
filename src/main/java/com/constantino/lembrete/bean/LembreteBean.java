@@ -39,6 +39,18 @@ public class LembreteBean {
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null,new FacesMessage("Lembrete adicionado com Sucesso!"));
         context.getExternalContext().getFlash().setKeepMessages(true);
-        return "index.xhtml";
+        return "index.xhtml?faces-redirect=true";
+    }
+
+    public void lembretePorId(){
+        lembrete = mapper.buscar(lembrete.getId());
+
+        if(lembrete == null || lembrete.getId() == 0){
+            lembrete = new Lembrete();
+
+            FacesMessage message = new FacesMessage("Lembrete não encontrado");
+            message.setSeverity(FacesMessage.SEVERITY_ERROR);
+            FacesContext.getCurrentInstance().addMessage(null,message);
+        }
     }
 }
