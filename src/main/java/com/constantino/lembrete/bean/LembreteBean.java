@@ -42,6 +42,18 @@ public class LembreteBean {
         return "index.xhtml?faces-redirect=true";
     }
 
+    public String remover(){
+        mapper.remover(lembrete);
+
+        lembrete = new Lembrete();
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null,new FacesMessage("Lembrete removido com sucesso"));
+        context.getExternalContext().getFlash().setKeepMessages(true);
+
+        return "index.xhtml?faces-redirect=true";
+    }
+
     public void lembretePorId(){
         lembrete = mapper.buscar(lembrete.getId());
 

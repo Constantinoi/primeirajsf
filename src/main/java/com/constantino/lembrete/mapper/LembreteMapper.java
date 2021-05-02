@@ -44,6 +44,8 @@ public class LembreteMapper {
     public void remover(Lembrete lembrete){
         try{
             lembrete = buscar(lembrete.getId());
+
+            lembretes.remove(lembrete);
         }catch (Exception e){
             e.printStackTrace();
         }
