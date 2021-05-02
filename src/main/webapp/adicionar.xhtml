@@ -7,12 +7,18 @@
 <h:head>
     <meta http-equiv="content-Type" content="text/html; charset=UTF-8"/>
     <title>Adicionar Lembrete</title>
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{lembreteBean.init}"/>
+    </f:metadata>
+
 </h:head>
 <h:body>
+    <h3>Adicionar Lembrete</h3>
     <h:form>
         <h:panelGrid columns="3">
             <h:outputLabel value="Titulo"/>
-            <h:inputText id="titulo" value="#{lembreteBean.lembrete.titulo}" required="true">
+            <h:inputText id="titulo" value="#{lembreteBean.lembrete.titulo}" required="true" requiredMessage="Este campo é Obrigatorio">
                 <f:validateLength minimum="3" maximum="255"/>
             </h:inputText>
             <h:message for="titulo"/>
